@@ -1,0 +1,10 @@
+div.footer{
+    padding: 10px;
+    color: whitesmoke;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}

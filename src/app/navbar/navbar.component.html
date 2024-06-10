@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container">
+        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar1" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button> -->
+        <div class="navD collapse navbar-collapse" id="navbar1">
+            <div class="logo">
+                <a class="navbar-brand" routerLink="">
+                    <img src="../../assets/images/Winamax2022_icone_RVB.png" alt="logo winamax">
+                </a>
+            </div>
+            <div class="menu">
+                <ul class="nav navbar-nav" routerLinkActive="active">
+                    <li class="nav-item"><a class="nav-link" routerLink="home" routerLinkActive="active">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="challengeListe">Challenges</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="informations">Informations</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="pokerRoom">Poker room</a></li>
+                </ul>
+            </div>
+            <div class="horaire">
+                <p>{{this.getDateForShow()}}</p>
+            </div>
+            <div class="horaire">
+                <button type="button" class="btn btn-danger" (click)="redirectTo()">Connexion</button>
+            </div>
+        </div>
+    </div>
+</nav>
