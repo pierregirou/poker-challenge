@@ -1,25 +1,52 @@
 
 <div class="signIn-form">
     <mat-card class="example-card">
-        <form #signinForm="ngForm" (ngSubmit)="signin(signinForm)">
+        <form #signinForm="ngForm">
             <mat-card-content>
-                <mat-form-field>
-                    <mat-label>Email</mat-label>
-                    <input matInput type="email" name="email" id="email" ngModel placeholder="Ex. pat@example.com" required>
-                </mat-form-field>
-                <mat-form-field>
+                    <mat-form-field >
+                        <mat-label>Email</mat-label>
+                        <input 
+                            matInput 
+                            type="email" 
+                            [(ngModel)]="signInUser.email" 
+                            #email="ngModel" 
+                            name="email" 
+                            id="email"  
+                            placeholder="Ex. pat@example.com" 
+                            required>
+                        <mat-error [hidden]="email.valid || email.pristine">
+                        Email invalide</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
                     <mat-label>Password</mat-label>
-                    <input matInput type="password" name="password"  id="password" ngModel required>
+                    <input 
+                        matInput 
+                        type="password" 
+                        [(ngModel)]="signInUser.password"  
+                        #password="ngModel" 
+                        name="password" 
+                        id="password" 
+                        required>
                     <mat-icon matSuffix>visibility</mat-icon>
+                    <mat-error [hidden]="password.valid || password.pristine">
+                    Password obligatoire</mat-error>
                 </mat-form-field>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button color="primary" [disabled]="!signinForm.form.valid">Se connecter</button>
+                <button type="button" (click)="signin(signinForm); signinForm.reset()" mat-raised-button color="primary" [disabled]="!signinForm.form.valid">Se connecter</button>
                 <!-- <mat-icon matSuffix>login</mat-icon> -->
             </mat-card-actions>
         </form>
     </mat-card>
 </div>
 
-{{signinForm.form.valid}}
+        
+@if(signinForm.submitted){
+    <p>submitted</p>
+}@else {
+    {{signinForm.form.valid}}
+}
+
+{{email.value}}
+{{password.value}}
 

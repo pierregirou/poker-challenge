@@ -1,9 +1,14 @@
 <h1>Bienvenu cher Administrateur !</h1>
 
 <div class="form-administrateur">
-    <app-form-signin></app-form-signin>
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
+        <mat-tab label="Connexion">
+            <app-form-signin></app-form-signin>
+        </mat-tab>
+        <mat-tab label="Inscription">
+            <app-form-signup></app-form-signup>
+        </mat-tab>
+      </mat-tab-group>
 </div>
 
-<div class="form-administrateur">
-    <app-form-signup></app-form-signup>
-</div>
+  
