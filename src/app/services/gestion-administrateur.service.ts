@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -8,8 +8,8 @@ export class GestionAdministrateurService {
   constructor(private http:HttpClient) { }
  
   signin(mail:string,password:string){
-    this.http.post('https://pg-dev.fr/classement_mtt_winamax/connexion.php',{
-      'method':'signIn',
+    this.http.post('https://pg-dev.fr/winamax/connexion.php',{
+      'method':'signin',
       'mail':mail,
       'password':password
     }).subscribe({

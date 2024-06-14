@@ -18,6 +18,7 @@ import { GestionAdministrateurService } from '../../services/gestion-administrat
 })
 export class FormSigninComponent implements OnInit {
 
+
   email:string;
   password:string;
   signInUser: { email: string; password: string; };
@@ -32,20 +33,12 @@ export class FormSigninComponent implements OnInit {
     //Add 'implements OnInit' to the class.
     this.signInUser = { 'email': this.email, 'password': this.password}
   }
-<<<<<<< HEAD
-  onSubmit(signinForm:NgForm) {
-    console.log('submited', signinForm.value);
-    this.signInUser.email = '';
-    this.signInUser.password = '';
-    
-  }
-=======
+
 
   /**
    * get connection
    * @param signinForm 
    */
->>>>>>> 8012f4d7f4f933d2393db040f5b61c1357b1a943
   signin(signinForm:NgForm){
     console.log(signinForm.value.email)
     console.log(signinForm.form.value.password)
