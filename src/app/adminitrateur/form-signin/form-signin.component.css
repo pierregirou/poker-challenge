@@ -1,5 +1,5 @@
 .example-card {
-     max-width: 100% !important; 
+     max-width: 400px; 
   }
   
 mat-form-field{
@@ -10,32 +10,13 @@ mat-card-actions button{
     width: 100%;
 }
 
-
-::ng-deep mat-tab-group{
-  min-width: 30%  !important;
+mat-icon{
+  cursor: pointer;
 }
 
-@media only screen and (max-width: 1200px){
-  /*Tablets [601px -> 1200px]*/
-  ::ng-deep mat-tab-group{
-    min-width: 50%  !important;
-  }
-}
-@media only screen and (max-width: 600px){
-/*Big smartphones [426px -> 600px]*/
-  ::ng-deep mat-tab-group{
-    min-width: 70%  !important;
-  }
-}
-@media only screen and (max-width: 425px){
-/*Small smartphones [325px -> 425px]*/
-  ::ng-deep mat-tab-group{
-    min-width: 90%  !important;
-  }
-}
 /* .ng-valid[required], .ng-valid.required  {
     border-left: 5px solid #42A948;
-}
+  }
   .ng-invalid:not(form)  {
     border-left: 5px solid #a94442; 
-} */
+  } */
