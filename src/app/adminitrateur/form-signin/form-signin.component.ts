@@ -16,6 +16,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './form-signin.component.css'
 })
 export class FormSigninComponent implements OnInit {
+
   email:string;
   password:string;
   signInUser: { email: string; password: string; };
@@ -29,7 +30,12 @@ export class FormSigninComponent implements OnInit {
     this.signInUser = { 'email': this.email, 'password': this.password}
     
   }
-
+  onSubmit(signinForm:NgForm) {
+    console.log('submited', signinForm.value);
+    this.signInUser.email = '';
+    this.signInUser.password = '';
+    
+  }
   signin(signinForm:NgForm){
     console.log(signinForm.form.value.email)
     console.log(signinForm.form.value.password)

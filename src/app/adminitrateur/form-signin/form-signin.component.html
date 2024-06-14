@@ -1,7 +1,7 @@
 
 <div class="signIn-form">
     <mat-card class="example-card">
-        <form #signinForm="ngForm">
+        <form #signinForm="ngForm" (ngSubmit)="signin(signinForm); signinForm.reset()">
             <mat-card-content>
                     <mat-form-field >
                         <mat-label>Email</mat-label>
@@ -29,11 +29,11 @@
                         required>
                     <mat-icon matSuffix>visibility</mat-icon>
                     <mat-error [hidden]="password.valid || password.pristine">
-                    Password obligatoire</mat-error>
+                    password obligatoire</mat-error>
                 </mat-form-field>
             </mat-card-content>
             <mat-card-actions>
-                <button type="button" (click)="signin(signinForm); signinForm.reset()" mat-raised-button color="primary" [disabled]="!signinForm.form.valid">Se connecter</button>
+                <button type="submit" mat-raised-button color="primary" [disabled]="!signinForm.form.valid">Se connecter</button>
                 <!-- <mat-icon matSuffix>login</mat-icon> -->
             </mat-card-actions>
         </form>
