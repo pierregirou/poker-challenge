@@ -5,18 +5,20 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GestionAdministrateurService {
-  constructor(private http:HttpClient) { }
- 
-  signin(mail:string,password:string){
-    this.http.post('https://pg-dev.fr/winamax/connexion.php',{
-      'method':'signin',
-      'mail':mail,
-      'password':password
-    }).subscribe({
-      next: ((value)=>{console.log(value)}),
-      error: ((error)=>console.error),
-      complete:(()=>console.log('complete http request signIn'))
-    })
-  }
+  link:string;
+  constructor(private http:HttpClient) {
+    this.link = 'https://www.pg-dev.fr/winamax/connexion.php';
+   }
 
+  signin(login:string,password:string){
+    this.http.post(this.link,{
+      'method':'signin',
+      'login': login,
+      'password' : password
+    }).subscribe({
+      next:(value)=>(console.log(value)),
+      error:(e)=>(console.error(e)),
+      complete:()=>(console.log('request signin complete'))
+    })  
+  }
 }
