@@ -12,7 +12,8 @@
                             #email="ngModel" 
                             name="email" 
                             id="email"  
-                            placeholder="Ex. pat@example.com" 
+                            placeholder="Ex. johnDoe@example.com" 
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                             required>
                         <mat-error [hidden]="email.valid || email.pristine">
                         Email invalide</mat-error>
@@ -21,13 +22,13 @@
                     <mat-label>Password</mat-label>
                     <input 
                         matInput 
-                        type="password" 
+                        type="{{showPassWord ? 'text': 'password'}}" 
                         [(ngModel)]="signInUser.password"  
                         #password="ngModel" 
                         name="password" 
                         id="password" 
                         required>
-                    <mat-icon matSuffix>visibility</mat-icon>
+                        <mat-icon matSuffix (click)="handlerPassword()">{{ !showPassWord ? 'visibility' : 'visibility_off' }}</mat-icon>
                     <mat-error [hidden]="password.valid || password.pristine">
                     password obligatoire</mat-error>
                 </mat-form-field>
@@ -39,14 +40,4 @@
         </form>
     </mat-card>
 </div>
-
-        
-@if(signinForm.submitted){
-    <p>submitted</p>
-}@else {
-    {{signinForm.form.valid}}
-}
-
-{{email.value}}
-{{password.value}}
 
