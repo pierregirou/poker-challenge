@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FormGroup, NgForm } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -10,15 +11,38 @@ export class GestionAdministrateurService {
     this.link = 'https://www.pg-dev.fr/winamax/connexion.php';
    }
 
-  signin(login:string,password:string){
+  signin(signinForm:NgForm){
     this.http.post(this.link,{
       'method':'signin',
-      'login': login,
-      'password' : password
+      'login': signinForm.value.email,
+      'password' : signinForm.value.password
     }).subscribe({
       next:(value)=>(console.log(value)),
       error:(e)=>(console.error(e)),
       complete:()=>(console.log('request signin complete'))
     })  
+  }
+
+  signup(signupForm:FormGroup){
+    console.log(signupForm.value)
+    this.http.post(this.link,{
+      'method' :'signup',
+      'login': signupForm.value.email,
+      'mail': signupForm.value.email,
+      'password' : signupForm.value.password,
+      'pseudoPoker' : signupForm.value.pseudoPoker,
+      'nom' : signupForm.value.nom,
+      'prenom' : signupForm.value.prenom,
+      'age' : signupForm.value.age,
+      'phone' : signupForm.value.phone,
+      'date_naissance' : signupForm.value.dateNaissance,
+      'adresse' : signupForm.value.adresse,
+      'code_postal' : signupForm.value.codePostal,
+      'ville' : signupForm.value.ville,
+    }).subscribe({
+      next: ((value)=>{console.log(value)}),
+      error: ((e)=>{console.error(e)}),
+      complete: (()=>{console.log('request signin complete')}),
+    })
   }
 }

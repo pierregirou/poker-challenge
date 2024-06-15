@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { CustomMaterialModule } from '../custom-material/custom-material.module';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterModule],
+  imports: [
+    RouterModule,
+    CustomMaterialModule
+  ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })

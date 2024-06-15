@@ -1,17 +1,73 @@
 
 <div class="signup-form">
-    <form>
-        <input type="email" placeholder="adresse email">
-        <input type="password" placeholder="mot de passe">
-        <input type="text" placeholder="pseudo">
-        <input type="text" placeholder="nom">
-        <input type="text" placeholder="prénom">
-        <input type="number" placeholder="age">
-        <input type="date" placeholder="date_naissance">
-        <input type="text" placeholder="adresse">
-        <input type="number" placeholder="code_postal">
-        <input type="text" placeholder="ville">
-        <input type="password" placeholder="votre mot de passe">
-        <input type="button" value="S'inscrire">
-    </form>
+    <mat-card class="example-card">
+        <mat-card-content>
+            <form [formGroup]="signupForm" (ngSubmit)="signup()">
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" formControlName="email" placeholder="Ex: johnDoe@example.com">
+                    <mat-error [hidden]="!signupForm.controls.email.hasError('required')">Email obligatoire</mat-error>
+                    <mat-error [hidden]="!signupForm.controls.email.hasError('pattern')">Email invalide</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input matInput type="{{showPassword ? 'text' : 'password'}}"  formControlName="password">
+                    <mat-icon matSuffix (click)="handlerPassword()">{{ !showPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+                    <mat-error [hidden]="!signupForm.controls.password.hasError('required')">Password obligatoire</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Confirme Password</mat-label>
+                    <input matInput type="{{showPassword ? 'text' : 'password'}}"  formControlName="confirmPassword">
+                    <mat-icon matSuffix (click)="handlerPassword()">{{ !showPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+                    <mat-error [hidden]="!signupForm.controls.confirmPassword.hasError('required')">Confirmation password obligatoire</mat-error>
+                </mat-form-field>
+                <div class="misMatchError" 
+                *ngIf="signupForm?.errors?.['mismatch']  && signupForm.get('confirmPassword')?.touched">
+                    <mat-error>Confirmation password incorrect</mat-error>
+                </div>
+                <mat-form-field>
+                    <mat-label>Pseudo poker</mat-label>
+                    <input matInput type="text" formControlName="pseudoPoker" placeholder="Ex: LaTeteAilleur75">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Nom</mat-label>
+                    <input matInput type="text" formControlName="nom" placeholder="Ex: Doe">
+                    <mat-error [hidden]="!signupForm.controls.nom.hasError('required')">Nom obligatoire</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Prénom</mat-label>
+                    <input matInput type="text" formControlName="prenom" placeholder="Ex: John">
+                    <mat-error [hidden]="!signupForm.controls.prenom.hasError('required')">Prénom obligatoire</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Age</mat-label>
+                    <input matInput type="number" formControlName="age" placeholder="Ex: 23">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Phone</mat-label>
+                    <input matInput type="text" formControlName="phone" placeholder="Ex: 06 26 99 99 00">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Date de naissance</mat-label>
+                    <input matInput type="date" formControlName="dateNaissance">
+                    <mat-error [hidden]="!signupForm.controls.dateNaissance.hasError('required')">Date de naissance obligatoire</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Adresse</mat-label>
+                    <input matInput type="text" formControlName="adresse" placeholder="Ex: 36 Av des Champs">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Code postal</mat-label>
+                    <input matInput type="number" formControlName="codePostal" placeholder="Ex: 75000">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Ville</mat-label>
+                    <input matInput type="text" formControlName="ville" placeholder="Ex: Paris">
+                </mat-form-field>
+                <mat-card-actions>
+                    <button type="submit" mat-raised-button [disabled]="!signupForm.valid" color="primary">S'inscrire</button>
+                </mat-card-actions>
+            </form>
+        </mat-card-content>
+    </mat-card>
 </div>

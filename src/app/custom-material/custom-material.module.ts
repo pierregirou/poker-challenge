@@ -5,7 +5,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
-
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
 @NgModule({
   declarations: [],
   imports: [
@@ -15,13 +16,17 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatIconModule,
     MatCardModule,
     MatTabsModule,
+    MatMenuModule,
+    MatDividerModule
   ],
   exports: [
     MatInputModule,
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
+    MatMenuModule,
+    MatDividerModule
   ]
 })
 export class CustomMaterialModule { }

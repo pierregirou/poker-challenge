@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
-    <div class="container">
+
         <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar1" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button> -->
+        </button> --><!-- <nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container">
         <div class="navD collapse navbar-collapse" id="navbar1">
             <div class="logo">
                 <a class="navbar-brand" routerLink="">
@@ -11,7 +11,8 @@
             </div>
             <div class="menu">
                 <ul class="nav navbar-nav" routerLinkActive="active">
-                    <li class="nav-item"><a class="nav-link" routerLink="home" routerLinkActive="active">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="home" routerLinkActive="active">Accueil</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" routerLink="challengeListe">Challenges</a></li>
                     <li class="nav-item"><a class="nav-link" routerLink="informations">Informations</a></li>
                     <li class="nav-item"><a class="nav-link" routerLink="pokerRoom">Poker room</a></li>
@@ -25,4 +26,36 @@
             </div>
         </div>
     </div>
+</nav> -->
+<nav>
+<div class="logo">
+    <a class="navbar-brand" routerLink="">
+        <img width="30px" src="../../assets/images/Winamax2022_icone_RVB.png" alt="logo winamax">
+    </a>
+</div>
+<div color="primary">
+    <button mat-button [matMenuTriggerFor]="afterMenu" color="primary" routerLink="home" routerLinkActive="active"> <mat-icon>home</mat-icon>Accueil</button>
+    <mat-menu #afterMenu="matMenu" xPosition="after">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="afterMenu" color="primary"  routerLink="challengeListe" ><span class="material-symbols-outlined">trophy</span>Challenges</button>
+    <mat-menu #afterMenu="matMenu" xPosition="after">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="afterMenu" color="primary"  routerLink="informations"><mat-icon>info</mat-icon>Informations</button>
+    <mat-menu #afterMenu="matMenu" xPosition="after">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="afterMenu" color="primary" routerLink="pokerRoom"><span class="material-symbols-outlined">playing_cards</span>Poker room</button>
+    <mat-menu #afterMenu="matMenu" xPosition="after">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>{{this.getDateForShow()}}</button>
+    </mat-menu>
+    <p>{{this.getDateForShow()}}</p>
+    <button mat-fab type="button" class="" color="primary" (click)="redirectTo()"><mat-icon>login</mat-icon></button>
+</div>
 </nav>
+<mat-divider></mat-divider>

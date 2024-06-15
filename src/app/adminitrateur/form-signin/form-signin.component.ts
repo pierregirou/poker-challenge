@@ -23,7 +23,7 @@ export class FormSigninComponent implements OnInit {
   email:string;
   password:string;
   signInUser: { email: string; password: string; };
-  showPassWord:boolean;
+  showPassWord:boolean  = false;
   constructor(private gestionAdminService:GestionAdministrateurService){
     this.email = 'pierre.girou42290@gmail.com';
     this.password = 'pierregirou';
@@ -40,9 +40,7 @@ export class FormSigninComponent implements OnInit {
    * @param signinForm 
    */
   signin(signinForm:NgForm){
-    console.log(signinForm.value.email)
-    console.log(signinForm.form.value.password)
-    this.gestionAdminService.signin(signinForm.value.email,signinForm.value.password)
+    this.gestionAdminService.signin(signinForm)
   }
 
   /**
