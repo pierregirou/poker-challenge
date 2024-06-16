@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { CustomMaterialModule } from '../../custom-material/custom-material.module';
 import { AbstractControl, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { GestionAdministrateurService } from '../../services/gestion-administrateur.service';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-form-signup',
   standalone: true,
@@ -37,7 +37,7 @@ export class FormSignupComponent {
   })
   constructor(
     private formBuilder:FormBuilder, 
-    private gestionAdminService:GestionAdministrateurService
+    private userService:UserService
   ){}
 
   ngOnInit(){}
@@ -52,7 +52,7 @@ export class FormSignupComponent {
   }
 
   signup(){
-    this.gestionAdminService.signup(this.signupForm)
+    this.userService.signup(this.signupForm)
   }
 
   handlerPassword():void {

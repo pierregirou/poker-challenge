@@ -4,17 +4,17 @@ import { FormSignupComponent } from './form-signup/form-signup.component';
 import { CustomMaterialModule } from '../custom-material/custom-material.module';
 
 @Component({
-  selector: 'app-adminitrateur',
+  selector: 'app-user',
   standalone: true,
   imports: [
     FormSigninComponent,
     FormSignupComponent,
     CustomMaterialModule
   ],
-  templateUrl: './adminitrateur.component.html',
-  styleUrl: './adminitrateur.component.css'
+  templateUrl: './user.component.html',
+  styleUrl: './user.component.css'
 })
-export class AdminitrateurComponent {
+export class UserComponent {
 
 
 }

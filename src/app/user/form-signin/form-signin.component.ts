@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CustomMaterialModule } from '../../custom-material/custom-material.module';
 import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { GestionAdministrateurService } from '../../services/gestion-administrateur.service';
+import { UserService } from '../../services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -15,7 +15,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     CustomMaterialModule,
   ],
   providers:[
-    GestionAdministrateurService
+    UserService
   ],
   templateUrl: './form-signin.component.html',
   styleUrl: './form-signin.component.css'
@@ -27,7 +27,7 @@ export class FormSigninComponent implements OnInit {
   showPassWord:boolean  = false;
 
   constructor(
-    private gestionAdminService:GestionAdministrateurService,
+    private userService:UserService,
     private snackBar:MatSnackBar
     ){
     this.email = 'pierre.girou42290@gmail.com';
@@ -45,7 +45,7 @@ export class FormSigninComponent implements OnInit {
    * @param signinForm 
    */
   signin(signinForm:NgForm){
-    this.gestionAdminService.signin(signinForm).subscribe({
+    this.userService.signin(signinForm).subscribe({
       next:(value:any)=>{
         if(value.succes){
           this.snackBar.open(`Bonjour ${value.response.login}`,'OK',{duration:5000})
@@ -53,7 +53,7 @@ export class FormSigninComponent implements OnInit {
           this.snackBar.open(`Identifiant incorrect !`,'RETRY',{duration:5000})
         }
       },
-      error:(e)=>(console.error(e)),
+      error:(e:Error)=>(console.error(e)),
       complete:()=>(console.log('request signin complete'))
     })  
   }

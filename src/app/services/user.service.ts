@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class GestionAdministrateurService {
+export class UserService {
   link:string;
   constructor(private http:HttpClient) {
     this.link = 'https://www.pg-dev.fr/winamax/connexion.php';

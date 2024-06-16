@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './challenge-detail.component.css'
 })
 export class ChallengeDetailComponent {
-
+  // get id for searsh information
 }

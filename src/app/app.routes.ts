@@ -4,17 +4,22 @@ import { ChallengeListeComponent } from './challenge-liste/challenge-liste.compo
 import { ChallengeDetailComponent } from './challenge-detail/challenge-detail.component';
 import { InformationComponent } from './information/information.component';
 import { PokerRoomComponent } from './poker-room/poker-room.component';
-import { AdminitrateurComponent } from './adminitrateur/adminitrateur.component';
-import { GestionAdminComponent } from './gestion-admin/gestion-admin.component';
+import { UserComponent } from './user/user.component';
+import { GestionUserComponent } from './gestion-user/gestion-user.component';
 import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
+    {
+        path:'user', 
+        component:GestionUserComponent,
+        canActivate: [authGuard]
+    },
     {
         path:'home', 
         component:HomeComponent
     },
     {
-        path:'informations', 
+        path:'information', 
         component:InformationComponent
     },
     {
@@ -31,11 +36,11 @@ export const routes: Routes = [
     },
     {
         path:'admin', 
-        component:AdminitrateurComponent
+        component:UserComponent
     },
     {
-        path:'gestion', 
-        component:GestionAdminComponent,
+        path:'user', 
+        component:GestionUserComponent,
         canActivate: [authGuard]
     },
     {
