@@ -1,4 +1,44 @@
-/* */
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  mat-sidenav-container{
+    height: 90vh;
+  }
+
+  mat-sidenav-content{
+    padding: 1.125rem;
+  }
+  .signin-icon{
+    position: absolute;
+    right: 0;
+  }
+
+  .time{
+    position: absolute;
+    width:100%;
+    bottom: 0;
+  }
+
+  .time p{
+    text-align: center;
+  }
+
+  .first-sidenav-item{
+    margin: 25px 0 15px 0;
+  }
+
+  .last-sidenav-item{
+    
+  }
+
+
+
+/*  
 nav{
     margin-bottom: 5px;
 }
@@ -9,12 +49,6 @@ nav{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* .container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-} */
 
 .navbar-collapse{
     display: flex;
@@ -43,4 +77,4 @@ nav{
 }
 .navbar .horaire p{
     margin: 0;
-} 
+}  */

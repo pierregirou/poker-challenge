@@ -1,61 +1,52 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" (click)="sidenav.toggle()"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Poker challenge</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="signin-icon" type="button" (click)="redirectTo()">
+        <mat-icon>{{ isLoggedIn ? 'login' : 'logout' }}</mat-icon>
+    </button>
+</mat-toolbar>
 
-        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar1" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button> --><!-- <nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
-    <div class="container">
-        <div class="navD collapse navbar-collapse" id="navbar1">
-            <div class="logo">
-                <a class="navbar-brand" routerLink="">
-                    <img src="../../assets/images/Winamax2022_icone_RVB.png" alt="logo winamax">
-                </a>
-            </div>
-            <div class="menu">
-                <ul class="nav navbar-nav" routerLinkActive="active">
-                    <li class="nav-item"><a class="nav-link" routerLink="home" routerLinkActive="active">Accueil</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" routerLink="challengeListe">Challenges</a></li>
-                    <li class="nav-item"><a class="nav-link" routerLink="informations">Informations</a></li>
-                    <li class="nav-item"><a class="nav-link" routerLink="pokerRoom">Poker room</a></li>
-                </ul>
-            </div>
-            <div class="horaire">
+<mat-sidenav-container class="exemple-container" color="primary">
+    <mat-sidenav #sidenav opened mode="side">
+        <div class="logo">
+            <a class="navbar-brand" routerLink="">
+                <img width="30px" src="../../assets/images/plateforms/Winamax2.png" alt="logo winamax">
+            </a>
+        </div>
+        <div>
+            <button mat-button color="primary"  class="item-sidenav first-item-sidenav" routerLink="home" routerLinkActive="active">
+                <mat-icon>home</mat-icon>
+                Accueil</button>
+            <mat-divider></mat-divider>
+            <button mat-button color="primary" class="item-sidenav" routerLink="challengeListe">
+                <span class="material-symbols-outlined">trophy</span>
+                Challenges</button>
+            <mat-divider></mat-divider>
+            <button mat-button color="primary"  class="item-sidenav" routerLink="informations">
+                <mat-icon>info</mat-icon>
+                Informations</button>
+            <mat-divider></mat-divider>
+            <button mat-button color="primary" class="item-sidenav" routerLink="pokerRoom">
+                <span class="material-symbols-outlined">playing_cards</span>
+                Poker room</button>
+            <mat-divider></mat-divider>
+            <button mat-button color="primary" class="item-sidenav" routerLink="gestion">
+                <span class="material-symbols-outlined">dashboard</span>
+                Dashboard</button>
+            <mat-divider></mat-divider>
+            <button mat-button color="primary" class="item-sidenav last-item-sidenav" routerLink="gestion">
+                <mat-icon>settings</mat-icon>
+            Setting</button>
+            <div class="time">
                 <p>{{this.getDateForShow()}}</p>
             </div>
-            <div class="horaire">
-                <button type="button" class="btn btn-danger" (click)="redirectTo()">Connexion</button>
-            </div>
         </div>
-    </div>
-</nav> -->
-<nav>
-<div class="logo">
-    <a class="navbar-brand" routerLink="">
-        <img width="30px" src="../../assets/images/Winamax2022_icone_RVB.png" alt="logo winamax">
-    </a>
-</div>
-<div color="primary">
-    <button mat-button [matMenuTriggerFor]="afterMenu" color="primary" routerLink="home" routerLinkActive="active"> <mat-icon>home</mat-icon>Accueil</button>
-    <mat-menu #afterMenu="matMenu" xPosition="after">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-    </mat-menu>
-    <button mat-button [matMenuTriggerFor]="afterMenu" color="primary"  routerLink="challengeListe" ><span class="material-symbols-outlined">trophy</span>Challenges</button>
-    <mat-menu #afterMenu="matMenu" xPosition="after">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-    </mat-menu>
-    <button mat-button [matMenuTriggerFor]="afterMenu" color="primary"  routerLink="informations"><mat-icon>info</mat-icon>Informations</button>
-    <mat-menu #afterMenu="matMenu" xPosition="after">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-    </mat-menu>
-    <button mat-button [matMenuTriggerFor]="afterMenu" color="primary" routerLink="pokerRoom"><span class="material-symbols-outlined">playing_cards</span>Poker room</button>
-    <mat-menu #afterMenu="matMenu" xPosition="after">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>{{this.getDateForShow()}}</button>
-    </mat-menu>
-    <p>{{this.getDateForShow()}}</p>
-    <button mat-fab type="button" class="" color="primary" (click)="redirectTo()"><mat-icon>login</mat-icon></button>
-</div>
-</nav>
-<mat-divider></mat-divider>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

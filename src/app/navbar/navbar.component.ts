@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CustomMaterialModule } from '../custom-material/custom-material.module';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -19,13 +20,19 @@ export class NavbarComponent implements OnInit {
   minute: number|string;
   seconde: number|string;
   affichageHeure: string;
-  constructor(private router:Router){
+  isLoggedIn:boolean;
+  constructor(
+    private router:Router,
+    private authService:AuthService
+  ){
     
   }
   ngOnInit(){
     setInterval(()=>{
       this.getDateForShow();
     },100)
+
+    this.isLoggedIn = this.authService.getisLoggedIn();
 
   }
 
