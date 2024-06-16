@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class UserService {
   link:string;
   constructor(private http:HttpClient) {
-    this.link = 'https://www.pg-dev.fr/winamax/connexion.php';
+    this.link = 'https://www.pg-dev.fr/pokerChallenge/connexion.php';
    }
 
   signin(signinForm:NgForm):Observable<any>{
@@ -24,10 +24,9 @@ export class UserService {
     console.log(signupForm.value)
     this.http.post(this.link,{
       'method' :'signup',
-      'login': signupForm.value.email,
+      'pseudoPoker': signupForm.value.pseudoPoker,
       'mail': signupForm.value.email,
       'password' : signupForm.value.password,
-      'pseudoPoker' : signupForm.value.pseudoPoker,
       'nom' : signupForm.value.nom,
       'prenom' : signupForm.value.prenom,
       'age' : signupForm.value.age,
