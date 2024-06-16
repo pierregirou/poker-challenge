@@ -28,6 +28,7 @@
                 <mat-form-field>
                     <mat-label>Pseudo poker</mat-label>
                     <input matInput type="text" formControlName="pseudoPoker" placeholder="Ex: LaTeteAilleur75">
+                    <mat-error [hidden]="!signupForm.controls.pseudoPoker.hasError('required')">Pseudo Poker obligatoire</mat-error>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Nom</mat-label>

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,16 +12,12 @@ export class GestionAdministrateurService {
     this.link = 'https://www.pg-dev.fr/winamax/connexion.php';
    }
 
-  signin(signinForm:NgForm){
-    this.http.post(this.link,{
+  signin(signinForm:NgForm):Observable<any>{
+   return this.http.post(this.link,{
       'method':'signin',
       'login': signinForm.value.email,
       'password' : signinForm.value.password
-    }).subscribe({
-      next:(value)=>(console.log(value)),
-      error:(e)=>(console.error(e)),
-      complete:()=>(console.log('request signin complete'))
-    })  
+    })
   }
 
   signup(signupForm:FormGroup){

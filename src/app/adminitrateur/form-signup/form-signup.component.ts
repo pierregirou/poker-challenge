@@ -22,7 +22,7 @@ export class FormSignupComponent {
     email: ['', [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
     password: ['', Validators.required],
     confirmPassword: ['', Validators.required],
-    pseudoPoker: [''],
+    pseudoPoker: ['', Validators.required],
     nom: ['', Validators.required],
     prenom: ['', Validators.required],
     age: [''],
