@@ -32,6 +32,9 @@
                     <mat-error [hidden]="password.valid || password.pristine">
                     password obligatoire</mat-error>
                 </mat-form-field>
+                <div class="password-forgot">
+                    <p (click)="goToPasswordForgot()">Mot de passe oublié ? </p>
+                </div>
             </mat-card-content>
             <mat-card-actions>
                 <button type="submit" mat-raised-button color="primary" [disabled]="!signinForm.form.valid"><mat-icon>login</mat-icon>Se connecter</button>

@@ -4,6 +4,7 @@ import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-signin',
@@ -28,7 +29,8 @@ export class FormSigninComponent implements OnInit {
 
   constructor(
     private userService:UserService,
-    private snackBar:MatSnackBar
+    private snackBar:MatSnackBar,
+    private router:Router
     ){
     this.email = 'pierre.girou42290@gmail.com';
     this.password = 'pierregirou';
@@ -63,5 +65,9 @@ export class FormSigninComponent implements OnInit {
    */
   handlerPassword() {
     this.showPassWord = !this.showPassWord;
+  }
+
+  goToPasswordForgot(){
+    this.router.navigateByUrl('passwordforgot');
   }
 }

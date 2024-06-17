@@ -10,7 +10,6 @@ mat-card-actions button{
     width: 100%;
 }
 
-
 ::ng-deep mat-tab-group{
   min-width: 30%  !important;
 }
@@ -37,6 +36,21 @@ mat-card-actions button{
 mat-icon{
   cursor: pointer;
 }
+
+.password-forgot{
+  width: 100%;
+  cursor: pointer;
+  color: rgb(156, 153, 153);
+  font-size: 0.800rem;
+}
+.password-forgot p{
+  padding: 0;
+  margin: 0;
+  text-align: end;
+}
+
+
+
 /* .ng-valid[required], .ng-valid.required  {
     border-left: 5px solid #42A948;
 }

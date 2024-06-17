@@ -9,6 +9,8 @@ import { GestionUserComponent } from './gestion-user/gestion-user.component';
 import { authGuard } from './guards/auth.guard';
 import { SettingComponent } from './setting/setting.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { PasswordForgotComponent } from './password-forgot/password-forgot.component';
 
 export const routes: Routes = [
     {
@@ -49,6 +51,14 @@ export const routes: Routes = [
         path:'setting', 
         component:SettingComponent,
         canActivate: [authGuard]
+    },
+    {
+        path:'notfoound', 
+        component:NotfoundComponent
+    },
+    {
+        path:'passwordforgot', 
+        component:PasswordForgotComponent
     },
     {
         path: '',
