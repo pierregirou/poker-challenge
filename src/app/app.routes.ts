@@ -7,6 +7,8 @@ import { PokerRoomComponent } from './poker-room/poker-room.component';
 import { UserComponent } from './user/user.component';
 import { GestionUserComponent } from './gestion-user/gestion-user.component';
 import { authGuard } from './guards/auth.guard';
+import { SettingComponent } from './setting/setting.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const routes: Routes = [
     {
@@ -39,8 +41,13 @@ export const routes: Routes = [
         component:UserComponent
     },
     {
-        path:'user', 
-        component:GestionUserComponent,
+        path:'dashboard', 
+        component:DashboardComponent,
+        canActivate: [authGuard]
+    },
+    {
+        path:'setting', 
+        component:SettingComponent,
         canActivate: [authGuard]
     },
     {
