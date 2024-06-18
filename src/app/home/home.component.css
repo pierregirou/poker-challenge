@@ -29,11 +29,9 @@ p {
     color: #3700b3;
 }
 .feature-item, .testimonial-item {
-    background-color: #444;
+    background-color:var(--mat-purpule);
     padding: 20px;
     border-radius: 5px;
     margin-bottom: 20px;
 }
-.feature-item h3{
-    color: whitesmoke;
-}
+/* s */

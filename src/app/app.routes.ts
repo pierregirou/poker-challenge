@@ -11,6 +11,7 @@ import { SettingComponent } from './setting/setting.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { PasswordForgotComponent } from './password-forgot/password-forgot.component';
+import { RGPDComponent } from './rgpd/rgpd.component';
 
 export const routes: Routes = [
     {
@@ -49,12 +50,15 @@ export const routes: Routes = [
     },
     {
         path:'setting', 
-        component:SettingComponent,
-        canActivate: [authGuard]
+        component:SettingComponent
     },
     {
         path:'notfoound', 
         component:NotfoundComponent
+    },
+    {
+        path:'rgpd', 
+        component:RGPDComponent
     },
     {
         path:'passwordforgot', 
