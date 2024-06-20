@@ -20,9 +20,8 @@ export class UserService {
     })
   }
 
-  signup(signupForm:FormGroup){
-    console.log(signupForm.value)
-    this.http.post(this.link,{
+  signup(signupForm:FormGroup): Observable<any>{
+   return this.http.post(this.link,{
       'method' :'signup',
       'pseudoPoker': signupForm.value.pseudoPoker,
       'mail': signupForm.value.email,
@@ -34,11 +33,7 @@ export class UserService {
       'date_naissance' : signupForm.value.dateNaissance,
       'adresse' : signupForm.value.adresse,
       'code_postal' : signupForm.value.codePostal,
-      'ville' : signupForm.value.ville,
-    }).subscribe({
-      next: ((value)=>{console.log(value)}),
-      error: ((e)=>{console.error(e)}),
-      complete: (()=>{console.log('request signin complete')}),
+      'ville' : signupForm.value.ville
     })
   }
 }

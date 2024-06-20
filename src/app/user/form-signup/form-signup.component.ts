@@ -4,6 +4,7 @@ import { AbstractControl, FormBuilder, ReactiveFormsModule } from '@angular/form
 import { Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-form-signup',
   standalone: true,
@@ -37,7 +38,8 @@ export class FormSignupComponent {
   })
   constructor(
     private formBuilder:FormBuilder, 
-    private userService:UserService
+    private userService:UserService,
+    private snackbar:MatSnackBar
   ){}
 
   ngOnInit(){}
@@ -52,7 +54,23 @@ export class FormSignupComponent {
   }
 
   signup(){
-    this.userService.signup(this.signupForm)
+    this.userService.signup(this.signupForm).subscribe({
+      next:(value)=>{
+        console.log(value)
+        if(value.responseMail.success){
+          this.snackbar.open('Un mail de confirmation vous a été envoyé !','X')
+        }else{
+          this.snackbar.open('Une erreur et survenue !','X')
+        }
+
+      },
+      error:(e)=>{
+        console.error(e)
+      },
+      complete:()=>{
+        console.log('request signin complete')
+      },
+    })
   }
 
   handlerPassword():void {
