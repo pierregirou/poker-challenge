@@ -10,11 +10,11 @@
             <td mat-cell *matCellDef="let element"> {{element.id}} </td>
         </ng-container>
 
-        <!-- Position Column -->
-        <ng-container matColumnDef="logo">
+        <!-- logo Column -->
+        <ng-container matColumnDef="logo" >
             <th mat-header-cell *matHeaderCellDef>  </th>
-            <td mat-cell *matCellDef="let element"> 
-                <a [href]="element.url" target="_blank">
+            <td mat-cell *matCellDef="let element" (click)="incrementClick(element.id)"> 
+                <a href="{{element.affiliation ? element.affiliation : element.url}}" target="_blank">
                     <img  src="../../assets/images/plateforms/{{element.logo}}" width="100"> 
                 </a>
             </td>
@@ -23,25 +23,26 @@
         <!-- Name Column -->
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef> Name </th>
-            <td mat-cell *matCellDef="let element">
-                <a [href]="element.url" target="_blank"> 
+            <td mat-cell *matCellDef="let element" (click)="incrementClick(element.id)">
+                <a href="{{element.affiliation ? element.affiliation : element.url}}" target="_blank"> 
                     {{element.name}}
                 </a>
              </td>
         </ng-container>
 
-        <!-- Weight Column -->
+        <!-- Format Column -->
         <ng-container matColumnDef="format">
             <th mat-header-cell *matHeaderCellDef> Format </th>
             <td mat-cell *matCellDef="let element"> {{element.format}} </td>
         </ng-container>
-        <!-- Weight Column -->
+
+        <!-- Information Column -->
         <ng-container matColumnDef="information">
             <th mat-header-cell *matHeaderCellDef> Information </th>
             <td mat-cell *matCellDef="let element"> {{element.information}} </td>
         </ng-container>
 
-        <!-- Symbol Column -->
+        <!-- Note Column -->
         <ng-container matColumnDef="note">
             <th mat-header-cell *matHeaderCellDef> Note </th>
             <td mat-cell *matCellDef="let element"> {{element.note}} </td>

@@ -16,4 +16,13 @@ export class RoomService {
   getPokerRomm():Observable<any>{
     return this.http.get(this.link);
   }
+
+  incrementClick(id:number){
+    console.log(id);
+    
+    this.http.post(this.link,{
+      "method": "increment",
+      "id_room": id
+    }).subscribe();
+  }
 }

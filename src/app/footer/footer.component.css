@@ -1,8 +1,7 @@
 div.footer{
     padding: 10px;
     color: whitesmoke;
-    font-size: large;
-    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--mat-primary-2);
     display: flex;
     justify-content: space-around;
     align-items: center;

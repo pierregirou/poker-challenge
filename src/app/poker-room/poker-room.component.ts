@@ -24,12 +24,16 @@ export class PokerRoomComponent implements OnInit{
 
   getPokerRoom() {
    this.roomsService.getPokerRomm().subscribe({
-    next:(value)=>{
-      this.rooms = value.response
-    },
-    error(err) {
-      console.error(err)
-    },
-  })
+      next:(value)=>{
+        this.rooms = value.response
+      },
+      error(err) {
+        console.error(err)
+      },
+    })
+  }
+
+  incrementClick(id:number){
+    this.roomsService.incrementClick(id)
   }
 }

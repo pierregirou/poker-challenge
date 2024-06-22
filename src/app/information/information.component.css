@@ -4,10 +4,20 @@
     padding: 20px;
     text-align: center;
 }
+
+.text-information{
+    padding: 1.250rem;
+}
+
+.text-information p{
+    text-align: justify;
+}
+
 h1 {
-    color: #3700b3;
+    color: var(--mat-primary-variant);
     margin-bottom: 20px;
 }
+
 p {
     font-size: 18px;
     line-height: 1.6;

@@ -10,6 +10,7 @@ h1 {
 }
 p {
     font-size: 18px;
+    text-align: justify;
     line-height: 1.6;
     margin-bottom: 20px;
 }
@@ -26,10 +27,10 @@ p {
     margin: 40px 0;
 }
 .features h2, .testimonials h2 {
-    color: #3700b3;
+    color: var(--mat-primary-variant);
 }
 .feature-item, .testimonial-item {
-    background-color:var(--mat-purpule);
+    background-color:var(--back-ground-text);
     padding: 20px;
     border-radius: 5px;
     margin-bottom: 20px;
