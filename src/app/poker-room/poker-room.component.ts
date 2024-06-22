@@ -25,7 +25,6 @@ export class PokerRoomComponent implements OnInit{
   getPokerRoom() {
    this.roomsService.getPokerRomm().subscribe({
     next:(value)=>{
-      console.log(value.response)
       this.rooms = value.response
     },
     error(err) {

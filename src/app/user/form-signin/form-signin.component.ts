@@ -55,7 +55,10 @@ export class FormSigninComponent implements OnInit {
           this.snackBar.open(`Identifiant incorrect !`,'RETRY',{duration:5000})
         }
       },
-      error:(e:Error)=>(console.error(e)),
+      error:(e:Error)=>{
+        this.snackBar.open('Une erreur et survenue !','X')
+        console.error(e)
+      },
       complete:()=>(console.log('request signin complete'))
     })  
   }

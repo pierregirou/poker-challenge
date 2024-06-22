@@ -60,12 +60,12 @@ export class FormSignupComponent {
         if(value.responseMail.success){
           this.snackbar.open('Un mail de confirmation vous a été envoyé !','X')
         }else{
-          this.snackbar.open('Une erreur et survenue !','X')
+          this.snackbar.open('Une erreur et survenue lors de l\'envoi du mail !','X')
         }
-
       },
       error:(e)=>{
         console.error(e)
+        this.snackbar.open('Une erreur et survenue !','X')
       },
       complete:()=>{
         console.log('request signin complete')
