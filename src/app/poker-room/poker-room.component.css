@@ -1,3 +1,7 @@
 table td{
     padding: 1.125rem
 }
+
+.mat-column-name a{
+    color: var(--mat-primary);
+}
