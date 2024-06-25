@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-form-signin',
@@ -29,6 +30,7 @@ export class FormSigninComponent implements OnInit {
 
   constructor(
     private userService:UserService,
+    private authService:AuthService,
     private snackBar:MatSnackBar,
     private router:Router
     ){
@@ -51,6 +53,8 @@ export class FormSigninComponent implements OnInit {
       next:(value:any)=>{
         if(value.success){
           this.snackBar.open(`Bonjour ${value.response.login}`,'OK',{duration:5000})
+          localStorage.setItem('User', JSON.stringify(value.response))
+          this.connectedUser(value.success)
         }else{
           this.snackBar.open(`Identifiant incorrect !`,'RETRY',{duration:5000})
         }
@@ -61,6 +65,10 @@ export class FormSigninComponent implements OnInit {
       },
       complete:()=>(console.log('request signin complete'))
     })  
+  }
+  connectedUser(value:boolean) {
+    console.log(value);
+    this.authService.login()
   }
 
   /**

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CustomMaterialModule } from '../custom-material/custom-material.module';
 import { AuthService } from '../services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -21,6 +22,7 @@ export class NavbarComponent implements OnInit {
   seconde: number|string;
   affichageHeure: string;
   isLoggedIn:boolean;
+  sub:Subscription
   constructor(
     private router:Router,
     private authService:AuthService
@@ -32,7 +34,11 @@ export class NavbarComponent implements OnInit {
       this.getDateForShow();
     },100)
 
-    this.isLoggedIn = this.authService.getisLoggedIn();
+    this.sub = this.authService._sendIFUserIsLoggedIn.subscribe(
+      (value)=>{
+        console.log(value)
+      this.isLoggedIn = value
+    })
 
   }
 
@@ -57,7 +63,11 @@ export class NavbarComponent implements OnInit {
     return this.affichageHeure
   }
   
-  redirectTo(){
+  connexion(isLoggedIn:any){
+    if(isLoggedIn){
+      console.log('user is ' + isLoggedIn)
+      this.authService.logout()
+    }
     this.router.navigateByUrl('admin')
   }
 }

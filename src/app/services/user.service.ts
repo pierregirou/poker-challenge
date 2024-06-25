@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   link:string;
+  user:any;
   constructor(private http:HttpClient) {
     this.link = 'https://www.pg-dev.fr/pokerChallenge/connexion.php';
    }
@@ -36,4 +37,14 @@ export class UserService {
       'ville' : signupForm.value.ville
     })
   }
+
+  logout(){
+    this.user = localStorage.getItem('User');
+    console.log('deco : '+ this.user)
+    this.http.post(this.link,{
+       'method':'logout',
+       'user_id': JSON.parse(this.user).id_user,
+       'connected' : false
+     }).subscribe();
+   }
 }

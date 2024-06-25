@@ -5,8 +5,8 @@
     </button>
     <span>Poker challenge</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="signin-icon" type="button" (click)="redirectTo()">
-        <mat-icon>{{ isLoggedIn ? 'login' : 'logout' }}</mat-icon>
+    <button mat-icon-button class="signin-icon" type="button" (click)="connexion(isLoggedIn)">
+        <mat-icon>{{ isLoggedIn ? 'logout' : 'login' }}</mat-icon>
     </button>
 </mat-toolbar>
 
@@ -38,7 +38,7 @@
                 <span class="material-symbols-outlined">playing_cards</span>
                 Poker room</button>
             <mat-divider></mat-divider>
-            <button mat-button color="primary" class="item-sidenav" routerLink="gestion">
+            <button mat-button color="primary" class="item-sidenav" routerLink="dashboard">
                 <span class="material-symbols-outlined">dashboard</span>
                 Dashboard</button>
             <mat-divider></mat-divider>
