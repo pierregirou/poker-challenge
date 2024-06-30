@@ -1,12 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ChallengeService } from '../services/challenge.service';
+import { CommonModule } from '@angular/common';
+import { CustomMaterialModule } from '../custom-material/custom-material.module';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-challenge-liste',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule,
+    CustomMaterialModule
+  ],
   templateUrl: './challenge-liste.component.html',
   styleUrl: './challenge-liste.component.css'
 })
-export class ChallengeListeComponent {
+export class ChallengeListeComponent implements OnInit {
 
+  challenges:any;
+  constructor(private challengeService:ChallengeService, private router:Router){}
+
+  ngOnInit(){
+   this.challenges = this.challengeService.getAllChallengePulic()
+  }
+
+  gotoChallengeById(id:number) {
+    console.log(id)
+      this.router.navigate([`challengeListe/`,id])
+    }
 }

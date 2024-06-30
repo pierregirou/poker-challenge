@@ -1,1 +1,9 @@
 <p>challenge-detail works!</p>
+
+
+@if (this.challenge) {
+    {{this.challenge|json}}
+}
+@else{
+    <p>Challenge inexistant !</p>
+}
