@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { UserService } from './user.service';
 
 @Injectable({
@@ -23,24 +23,30 @@ export class AuthService {
   }
 
   getisLoggedIn(){
-    // aller chercher en bdd si connected ou non 
-    this._sendIFUserIsLoggedIn.next(this.isLoggedIn);
+    if(localStorage.getItem('isLoggedIn') == null){
+      this.isLoggedIn = false
+    }else{
+      this.isLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn') as string);
+    }
+    this.emit_user_loggedIn();
   }
 
   login(){
     this.isLoggedIn = true;
-    this.userRole = 'admin';
-    this.router.navigateByUrl('dashboard');
-    this.getisLoggedIn()
     localStorage.setItem('isLoggedIn', JSON.stringify(this.isLoggedIn));
-    localStorage.setItem('asdm', JSON.stringify(this.userRole));
+    this.getisLoggedIn()
+    this.router.navigateByUrl('dashboard');
   }
 
   logout(){
     this.isLoggedIn = false;
-    this.userRole = '';
+    this.emit_user_loggedIn();
     this.userService.logout();
     localStorage.clear();
+  }
+
+  emit_user_loggedIn(){
+    this._sendIFUserIsLoggedIn.next(this.isLoggedIn);
   }
 
 }

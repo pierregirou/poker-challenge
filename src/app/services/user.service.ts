@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +43,7 @@ export class UserService {
     console.log('deco : '+ this.user)
     this.http.post(this.link,{
        'method':'logout',
+       'user_login': JSON.parse(this.user).mail,
        'user_id': JSON.parse(this.user).id_user,
        'connected' : false
      }).subscribe();
