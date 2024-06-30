@@ -1,9 +1,21 @@
-<p>challenge-detail works!</p>
+<div class="information-primaire">
+    <h1>{{challenge[0].name_challenge}}</h1>
+    <h2>{{challenge[0].titre}}</h2>
+    <h2>{{challenge[0].sous_titre}}</h2>
+</div>
+<div class="information-secondaire">
+    <div class="information-image">
+        <img src="{{challenge[0].image}}" width="30%">
+    </div>
+    <h2>{{challenge[0].date_creation | date:'dd/MM/YYYY'}}</h2>
+</div>
+<div class="information-description">
+    <p>{{challenge[0].description}}</p>
+</div>
 
-
-@if (this.challenge) {
-    {{this.challenge|json}}
+@if (challenge!=[]) {
+{{challenge|json}}
 }
 @else{
-    <p>Challenge inexistant !</p>
+<p>Challenge inexistant !</p>
 }

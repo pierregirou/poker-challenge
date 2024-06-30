@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChallengeService } from '../services/challenge.service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-challenge-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    DatePipe
+  ],
   templateUrl: './challenge-detail.component.html',
   styleUrl: './challenge-detail.component.css'
 })

@@ -1,0 +1,19 @@
+/* .information-image{
+    display: flex;
+    justify-content: center;
+} */
+.information-primaire{
+    text-align: center;
+}
+.information-secondaire{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+.information-description{
+    display: flex;
+    justify-content: center;
+}
+.information-description p{
+    text-align: justify;
+}
