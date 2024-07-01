@@ -19,7 +19,7 @@ div form{
 
 div.container{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: stretch;
     flex-wrap: wrap;
 }
