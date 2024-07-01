@@ -1,5 +1,17 @@
 <h1>Dashboard</h1>
 
-<p><a href="new-challenge">Créer un challenge</a></p>
-<p><a href="my-challenge">Mes Challenges</a></p>
-<p><a href="user">Mon compte</a></p>
+<div class="container-btn-action">
+    <button routerLink="new-challenge" color="accent" mat-mini-fab aria-label="Example icon button with a home icon">
+        <mat-icon>add</mat-icon>
+    </button><p>Créer un challenge</p>
+</div>
+<div class="container-btn-action">
+    <button routerLink="my-challenge" color="accent" mat-mini-fab aria-label="Example icon button with a home icon">
+        <span class="material-symbols-outlined">trophy</span>
+    </button><p>Mes Challenges</p>
+</div>
+<div class="container-btn-action">
+    <button routerLink="user" color="accent" mat-mini-fab aria-label="Example icon button with a home icon">
+        <mat-icon>person</mat-icon>
+    </button><p>Mon compte</p>
+</div>
