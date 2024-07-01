@@ -53,7 +53,7 @@ export const routes: Routes = [
         component:SettingComponent
     },
     {
-        path:'notfoound', 
+        path:'notfound', 
         component:NotfoundComponent
     },
     {
@@ -71,7 +71,7 @@ export const routes: Routes = [
     },
     {
         path: '**',
-        redirectTo: 'notfount',
+        redirectTo: 'notfound',
         pathMatch: 'full'
     }
 ];

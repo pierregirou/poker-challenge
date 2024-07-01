@@ -13,3 +13,7 @@ h1 {
 .container-btn-action>p{
     margin: 0 0 0 10px;
 }
+
+.material-symbols-outlined{
+    line-height: normal;
+}
